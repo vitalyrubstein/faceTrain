@@ -1,0 +1,55 @@
+body {
+	margin-left: 30px;
+    margin-top: 30px;
+}
+
+p.error {
+	color: red;
+}
+
+p.success {
+	color: blue;
+}
+
+
+h1 {
+	color: white;
+    display: inline-block;
+    font-family: 'ColaborateRegular',Arial,sans-serif;
+    font-size: 24px;
+    position: relative;
+    text-shadow: 0.1em 0.1em 0.2em black;
+}
+
+.hidden {
+	display: none;
+}
+
+div.mark {
+	width: 1px;
+	height: 1px;
+	border: 1px;
+	border: solid;
+	position: absolute;
+	border-color: red;
+}
+
+a {
+	font-size: 11px;
+	color: gray;
+}
+
+div.footer p {
+	font-size: 11px;
+	color: white;
+}
+
+span.label {
+	font-size: 11px;
+	color: white;
+	width: 1px;
+	border: solid;
+	border-color: red;
+	background: red;
+	
+}

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>faceTrain</title>
+<link href="../_css/s_face.css" rel="stylesheet">
+<script src="../_js/jquery-1.7.min.js"></script>
+<script src="../_js/f_face.js"></script>
+<script src="../_js/tagger.js"></script>
+
+<script>
+jQuery(function($){
+	
+	// clearing input line
+	$('div.form input#path').val('http://www.wildsound-filmmaking-feedback-events.com/images/george_clooney.jpg');
+	
+	// adding click event on upload button
+	$('div.form input#upload').click(function(e){	
+		e.preventDefault();
+		
+		// removing elements
+		$('div#marks div').remove(); // removes all marks
+		$('div#savetags input').remove(); // removes all save tags buttons
+		$('div#detect input').remove(); // removes detect button
+		
+		// preparing elements
+		var path = $('div.form input#path').val(); // reads input
+		$('div.form input#path').val(''); // clears input line
+		$('div.main p#link a').attr('href', path).text(path); // adds link with image path
+		$('div.main img').attr('src', path); // sets image src and loads image
+		$('div.main p').removeClass();  // unhides image and link
+		$('div#detect form').append('<input id="detect" type="submit" value="detect" />'); //adds detect button
+		
+		// adding click event on detect button
+		$('div#detect input#detect').click(function(e){
+		e.preventDefault();
+		$(this).attr('disabled', 'disabled').attr('value', 'detecting...'); // disables detect button
+		//detectFace(path); // calls custom function to detect faces on image
+		recognizeFace(path); // calls custom recognize function
+		}); //end click detect button
+		
+		// debuging output
+		console.log('done uploading!');
+	});//end click upload button
+}); //end jQuerry
+</script>
+</head>
+
+<body>
+	<div class="header">
+		<h1>face detection and recognition app</h1>
+	</div>
+	
+	<div class="form">
+		<form>
+			<input id="path" type="text" size="50" />
+			<input id="upload" type="submit" value="upload" />
+		</form>
+	</div>
+	
+	<div class="main">
+      	<p class="hidden" id="pic"><img src="" alt="TestPicture"/></p>
+		<p class="hidden" id="link"><a href="" target="_blank"></a></p>  	
+    </div>
+	 
+	 <div class="buttons" id="detect">
+		<form>
+			<input class="hidden" id="detect" type="submit" value="detect" />
+		</form>
+	</div>
+	<div class="buttons" id="savetags">
+	 	<form></form>
+	</div>
+	<div class="footer">
+    	<p>http://www.wildsound-filmmaking-feedback-events.com/images/george_clooney.jpg</p>
+		<p>http://www.nilacharal.com/enter/celeb/images/George%20Clooney.jpg</p>
+		<p>http://cdn03.cdnwp.celebuzz.com/wp-content/uploads/2010/12/27/george-clooney.jpg</p>
+		<p>http://www.televisionando.it/img/elisabetta-canalis-george-clooney-venezia.jpg</p>
+		<p>http://images.mirror.co.uk/upl/m3/may2008/0/3/BEBFF84D-BDB9-CD2C-0DDFE9C8CF6468CA.jpg</p>
+    	<p>All Rights Reserved. 2012.</p>
+    	<p>http://images.askmen.com/galleries/men/george-clooney/pictures/george-clooney-picture-2.jpg</p>
+  	</div>
+  	<div id="marks"></div>
+</body>
+</html>
