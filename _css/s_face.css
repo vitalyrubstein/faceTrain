@@ -47,9 +47,9 @@ div.footer p {
 span.label {
 	font-size: 11px;
 	color: white;
-	width: 1px;
+	width: 100px;
 	border: solid;
 	border-color: red;
 	background: red;
-	
+	position: absolute;
 }

@@ -22,6 +22,7 @@ jQuery(function($){
 		$('div#marks div').remove(); // removes all marks
 		$('div#savetags input').remove(); // removes all save tags buttons
 		$('div#detect input').remove(); // removes detect button
+		console.clear(); // clears console output
 		
 		// preparing elements
 		var path = $('div.form input#path').val(); // reads input
@@ -51,7 +52,7 @@ jQuery(function($){
 		<h1>face detection and recognition app</h1>
 	</div>
 	
-	<div class="form">
+	<div class="form" id="upload">
 		<form>
 			<input id="path" type="text" size="50" />
 			<input id="upload" type="submit" value="upload" />
@@ -64,9 +65,7 @@ jQuery(function($){
     </div>
 	 
 	 <div class="buttons" id="detect">
-		<form>
-			<input class="hidden" id="detect" type="submit" value="detect" />
-		</form>
+		<form></form>
 	</div>
 	<div class="buttons" id="savetags">
 	 	<form></form>
